@@ -10,12 +10,12 @@ import {
     Addition,
     Button,
     SearchWrapper
-} from './style'
-import { InputBlurAction, InputFouceAction } from "../../store/actionCreator";
+} from './style';
+import { actionCreators } from './store'
 
 const Header = (props) => {
 
-    const { focused, handleInputFocus, handleInputBlur } = props;
+    const {focused, handleInputFocus, handleInputBlur} = props;
 
     return (
         <HeaderWrapper>
@@ -62,14 +62,12 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
-            const action = InputFouceAction();
-            dispatch(action);
+            dispatch(actionCreators.SearchFouceAction());
             // console.log(state.focused)
         },
 
         handleInputBlur() {
-            const action = InputBlurAction();
-            dispatch(action);
+            dispatch(actionCreators.SearchBlurAction());
             // console.log(state.focused)
         }
     }
