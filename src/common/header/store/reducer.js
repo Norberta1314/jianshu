@@ -2,7 +2,7 @@ import * as actionTypes from './actionType'
 import { fromJS } from "immutable";
 
 
-//immutable库，保证state不会被修改
+//immutable库，避免不小心改变state的情况
 const defaultState = fromJS({
     focused: false
 });

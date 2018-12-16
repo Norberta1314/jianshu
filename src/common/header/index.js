@@ -7,11 +7,36 @@ import {
     Nav,
     NavItem,
     NavSearch,
+    SearchWrapper,
+    SearchInfo,
+    SearchInfoTitle,
+    SearchInfoSwitch,
+    SearchInfoList,
+    SearchInfoItem,
     Addition,
     Button,
-    SearchWrapper
 } from './style';
 import { actionCreators } from './store'
+
+const getListArea = (show) => {
+    if (show) {
+        return (
+            <SearchInfo>
+                <SearchInfoTitle>热门搜索
+                    <SearchInfoSwitch>换一批</SearchInfoSwitch>
+                </SearchInfoTitle>
+                <SearchInfoList>
+                    <SearchInfoItem>cayun</SearchInfoItem>
+                    <SearchInfoItem>cayun</SearchInfoItem>
+                    <SearchInfoItem>cayun</SearchInfoItem>
+                    <SearchInfoItem>cayun</SearchInfoItem>
+                    <SearchInfoItem>cayun</SearchInfoItem>
+                    <SearchInfoItem>cayun</SearchInfoItem>
+                </SearchInfoList>
+            </SearchInfo>
+        )
+    }
+}
 
 const Header = (props) => {
 
@@ -37,9 +62,11 @@ const Header = (props) => {
                             className={ focused ? 'focused' : '' }
                             onFocus={ handleInputFocus }
                             onBlur={ handleInputBlur }
-                        />
+                        >
+                        </NavSearch>
                     </CSSTransition>
                     <i className={ focused ? 'focused iconfont' : 'iconfont' }> &#xe623;</i>
+                    {getListArea(focused)}
                 </SearchWrapper>
                 <Addition>
                     <Button className='writting'>
@@ -56,7 +83,10 @@ const Header = (props) => {
 const mapStateToProps = (state) => {
     return {
         //immutable语法
-        focused: state.header.get('focused')
+        focused:state.getIn(['header', 'focused']),
+        //等价于
+        //focused: state.get('header').get('focused')
+
     }
 }
 
