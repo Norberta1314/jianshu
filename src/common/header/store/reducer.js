@@ -1,23 +1,20 @@
 import * as actionTypes from './actionType'
+import { fromJS } from "immutable";
 
-const defaultState = {
+
+//immutable库，保证state不会被修改
+const defaultState = fromJS({
     focused: false
-};
+});
 
 export default (state = defaultState, action) => {
-    if (action.type === actionTypes.SEARCH_FOUCE) {
-        const newState = JSON.parse(JSON.stringify(state));
-        newState.focused = true;
-        // console.log("focus")
-        // console.log(newState);
-        return newState;
+    if ( action.type === actionTypes.SEARCH_FOUCE ) {
+        //immutable对象的set方法，会结合之前immutable对象的值和设置的值
+        //返回一个全新的对象
+        return state.set('focused', true);
     }
-    if (action.type === actionTypes.SEARCH_BLUR) {
-        const newState = JSON.parse(JSON.stringify(state));
-        newState.focused = false;
-        // console.log("blur")
-        // console.log(newState)
-        return newState;
+    if ( action.type === actionTypes.SEARCH_BLUR ) {
+        return state.set('focused', false);
     }
     return state;
 }

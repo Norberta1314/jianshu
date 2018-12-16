@@ -55,7 +55,8 @@ const Header = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        focused: state.header.focused
+        //immutable语法
+        focused: state.header.get('focused')
     }
 }
 
@@ -63,12 +64,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         handleInputFocus() {
             dispatch(actionCreators.SearchFouceAction());
-            // console.log(state.focused)
         },
 
         handleInputBlur() {
             dispatch(actionCreators.SearchBlurAction());
-            // console.log(state.focused)
         }
     }
 }
