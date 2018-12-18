@@ -28,7 +28,7 @@ export const MouseLeave = () => ({
 export const ChangePage = (page, totalPage) => ({
     type:actionTypes.GHANGE_PAGE,
     page: fromJS(page),
-    totalPage: fromJS(totalPage)
+    totalPage: fromJS(totalPage),
 })
 
 //redux-thunk

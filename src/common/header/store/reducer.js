@@ -39,7 +39,6 @@ export default (state = defaultState, action) => {
     }
     if ( action.type === actionTypes.GHANGE_PAGE ) {
         if (action.page < action.totalPage) {
-
             return state.set('page', action.page + 1)
         } else {
             return state.set('page', 1)
