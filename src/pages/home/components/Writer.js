@@ -25,7 +25,9 @@ class Writer extends Component {
                 {
                     list.map((item) => {
                         return (
-                            <WriterItem>
+                            <WriterItem
+                                key={item.get('id')}
+                            >
                                 <img
                                     className='writer-pic'
                                     src={item.get('imgUrl')}
@@ -52,7 +54,7 @@ class Writer extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    list: state.getIn(['home', 'WriterList'])
+    list: state.getIn(['home', 'writerList'])
 })
 
 export default connect(mapStateToProps, null)(Writer);
