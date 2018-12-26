@@ -22,6 +22,23 @@ const defaultState = fromJS({
         title: '新手刚开始写手帐要写什么内容？2019年要买什么新的手帐本',
         desc: '经常有小可爱们留言或者私信我： 刚开始了解手帐，不知道手帐要写些什么内容，你能给我些建议吗？ 马上要2019年了，又到了立flag的时候了，新年...',
         imgUrl: 'https://upload-images.jianshu.io/upload_images/138513-1c760482c56ddf86.jpeg?imageMogr2/auto-orie'
+    }],
+
+    RecommendList: [{
+        id: 1,
+        imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-3-7123fd94750759acf7eca05b871e9d17.png'
+    }, {
+        id: 2,
+        imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-4-b70da70d679593510ac93a172dfbaeaa.png'
+    }, {
+        id: 3,
+        imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-7-1a0222c91694a1f38e610be4bf9669be.png'
+    }, {
+        id: 4,
+        imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-5-4ba25cf5041931a0ed2062828b4064cb.png'
+    }, {
+        id: 5,
+        imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
     }]
 });
 
