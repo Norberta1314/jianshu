@@ -92,9 +92,67 @@ export const RecommendItem = styled.div`
 `
 
 export const WriterWrapper = styled.div`
+  width: 278px;
+ // border: 1px solid #dcdcdc;
+  //border-radius: 3px;
+  height: 300px;
+  line-height: 300px;
+`
 
+export const WriterTitle = styled.div`
+  overflow: hidden;
+  margin-bottom: 10px;
+  .title {
+    display: block;
+    float: left;
+    font-size: 14px;
+    color: #969696;
+    height: 20px;
+    line-height: 20px;
+  }
+  .right {
+    float: right;
+  }
 `
 
 export const WriterItem = styled.div`
+  width: 278px;
+  height: 48px;
+  line-height: 48px;
+  margin-bottom: 15px;
+  .writer-pic {
+    display: block;
+    float: left;
+    width: 48px;
+    border-radius: 24px;
+  }
+`
 
+export const WriterInfo = styled.div`
+  overflow: hidden;
+  padding-left: 10px;
+  box-sizing: padding-box;
+  .title {
+    float: left;
+    height: 24px;
+    width: 150px;
+    line-height: 24px;
+    color: #333;
+  }
+  
+  .desc {
+    float: left;
+    height: 24px;
+    width: 150px;
+    line-height: 24px;
+    font-size: 12px;
+    color: #969696;
+  }
+`
+
+export const WriterFouce = styled.div`
+  display: block;
+  float: right;
+  font-size: 13px;
+  color: #42c02e;
 `

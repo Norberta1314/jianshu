@@ -39,6 +39,28 @@ const defaultState = fromJS({
     }, {
         id: 5,
         imgUrl: '//cdn2.jianshu.io/assets/web/banner-s-6-c4d6335bfd688f2ca1115b42b04c28a7.png'
+    }],
+
+    WriterList: [{
+        id: 1,
+        title: '无限猴子',
+        desc: '写了152.6k字 · 520喜欢',
+        imgUrl: '//upload.jianshu.io/users/upload_avatars/6652326/ba6106f4-20eb-4735-885d-561083bd4e55.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
+    }, {
+        id: 2,
+        title: '灰土豆',
+        desc: '写了152.6k字 · 520喜欢',
+        imgUrl: '//upload.jianshu.io/users/upload_avatars/6652326/ba6106f4-20eb-4735-885d-561083bd4e55.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
+    }, {
+        id: 3,
+        title: '小傻子',
+        desc: '写了152.6k字 · 520喜欢',
+        imgUrl: '//upload.jianshu.io/users/upload_avatars/6652326/ba6106f4-20eb-4735-885d-561083bd4e55.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
+    }, {
+        id: 4,
+        title: '大胖胖',
+        desc: '写了152.6k字 · 520喜欢',
+        imgUrl: '//upload.jianshu.io/users/upload_avatars/6652326/ba6106f4-20eb-4735-885d-561083bd4e55.jpg?imageMogr2/auto-orient/strip|imageView2/1/w/96/h/96/format/webp'
     }]
 });
 
