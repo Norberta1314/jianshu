@@ -7,18 +7,19 @@ import {
 
 class Topic extends Component {
     render() {
-        const { list } = this.props;
+        const {list} = this.props;
         return (
             <TopicWrapper>
                 {
-                    list.map((item) =>{
-                        return(
-                            <TopicItem key={item.get('id')}>
+                    list.map((item) => {
+                        return (
+                            <TopicItem key={ item.get('id') }>
                                 <img
                                     className='topic-pic'
-                                    src={item.get('imgUrl')}
+                                    src={ item.get('imgUrl') }
+                                    alt=''
                                 />
-                                {item.get('title')}
+                                { item.get('title') }
                             </TopicItem>
                         )
                     })
@@ -32,8 +33,6 @@ const mapStateToProps = (state) => ({
     list: state.getIn(['home', 'topicList'])
 })
 
-const mapDispatchToProps = () => ({
-
-})
+const mapDispatchToProps = () => ({})
 
 export default connect(mapStateToProps, mapDispatchToProps)(Topic);
