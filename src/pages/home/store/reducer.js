@@ -6,7 +6,8 @@ const defaultState = fromJS({
     topicList: [],
     articleList:[],
     recommendList:[],
-    writerList:[]
+    writerList:[],
+    articlePage: 1
 });
 
 export default (state = defaultState, action) => {
@@ -17,6 +18,13 @@ export default (state = defaultState, action) => {
             recommendList: fromJS(action.recommendList),
             writerList: fromJS(action.writerList)
         })
+    } else if (action.type === actionTypes.ADD_HOME_LIST) {
+        //concat 追加
+        return state.merge({
+            'articleList': state.get('articleList').concat(action.list),
+            'articlePage': action.nextPage
+        })
+
     }
 
     return state;
