@@ -4,14 +4,19 @@ import Topic from './components/Topic'
 import List from './components/List'
 import Recommend from './components/Recommend'
 import Writer from './components/Writer'
-import  * as actionCreators  from './store/actionCreators'
+import * as actionCreators from './store/actionCreators'
 import {
     HomeWrapper,
     HomeLeft,
-    HomeRight
+    HomeRight,
+    BackTop
 } from './style'
 
 class Home extends Component {
+    handleScrollTop() {
+        window.scrollTo(0, 0)
+    }
+
     render() {
         return (
             <div>
@@ -29,6 +34,8 @@ class Home extends Component {
                         <Recommend/>
                         <Writer/>
                     </HomeRight>
+                    { this.props.showScroll ? <BackTop onClick={ this.handleScrollTop }>顶部</BackTop> : '' }
+
                 </HomeWrapper>
             </div>
         );
@@ -36,14 +43,34 @@ class Home extends Component {
 
     componentDidMount() {
         this.props.changeHomeData();
+        this.bindEvents();
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener('scroll', this.props.changeScrollShow)
+    }
+
+    bindEvents() {
+        window.addEventListener('scroll', this.props.changeScrollShow)
     }
 }
+
+const mapState = (state) => ({
+    showScroll: state.getIn(['home', 'showScroll'])
+})
 
 const mapDispatch = (dispatch) => ({
     changeHomeData() {
         const action = actionCreators.getHomeInfo();
         dispatch(action)
+    },
+    changeScrollShow() {
+        if(document.documentElement.scrollTop > 400) {
+            dispatch(actionCreators.changeScrollTrue())
+        } else {
+            dispatch(actionCreators.changeScrollFalse())
+        }
     }
 })
 
-export default connect(null, mapDispatch)(Home);
+export default connect(mapState, mapDispatch)(Home);

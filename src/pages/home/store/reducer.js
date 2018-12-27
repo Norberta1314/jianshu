@@ -7,7 +7,8 @@ const defaultState = fromJS({
     articleList:[],
     recommendList:[],
     writerList:[],
-    articlePage: 1
+    articlePage: 1,
+    showScroll: false
 });
 
 export default (state = defaultState, action) => {
@@ -25,6 +26,10 @@ export default (state = defaultState, action) => {
             'articlePage': action.nextPage
         })
 
+    } else if (action.type === actionTypes.SCROLL_SHOW_TRUE) {
+        return state.set('showScroll', false)
+    } else if (action.type === actionTypes.SCROLL_SHOW_FALSE) {
+        return state.set('showScroll', true)
     }
 
     return state;

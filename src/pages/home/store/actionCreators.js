@@ -16,6 +16,14 @@ const addHomeList = (result, nextPage) => ({
     nextPage: nextPage
 })
 
+export const changeScrollTrue = () => ({
+    type: actionTypes.SCROLL_SHOW_FALSE
+})
+
+export const changeScrollFalse = () => ({
+    type: actionTypes.SCROLL_SHOW_TRUE
+})
+
 export const getHomeInfo = () => {
     return (dispatch) => {
         axios.get('/api/home.json').then((res) => {
