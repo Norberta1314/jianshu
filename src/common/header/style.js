@@ -6,9 +6,7 @@ export const HeaderWrapper = styled.div`
   height: 56px;
   border-bottom: 1px solid #f0f0f0;
 `
-export const Logo = styled.a.attrs({
-    href: '/'
-})`
+export const Logo = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -65,7 +63,7 @@ export const SearchWrapper = styled.div`
 
 
 export const NavSearch = styled.input.attrs({
-    placeholder: '搜索'
+  placeholder: '搜索'
 })`
   width: 160px;
   height: 38px;

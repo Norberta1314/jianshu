@@ -1,36 +1,36 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux'
 import {
-    TopicWrapper,
-    TopicItem
+  TopicWrapper,
+  TopicItem
 } from '../style';
 
-class Topic extends Component {
-    render() {
-        const {list} = this.props;
-        return (
-            <TopicWrapper>
-                {
-                    list.map((item) => {
-                        return (
-                            <TopicItem key={ item.get('id') }>
-                                <img
-                                    className='topic-pic'
-                                    src={ item.get('imgUrl') }
-                                    alt=''
-                                />
-                                { item.get('title') }
-                            </TopicItem>
-                        )
-                    })
-                }
-            </TopicWrapper>
-        );
-    }
+class Topic extends PureComponent {
+  render() {
+    const {list} = this.props;
+    return (
+      <TopicWrapper>
+        {
+          list.map((item) => {
+            return (
+              <TopicItem key={ item.get('id') }>
+                <img
+                  className='topic-pic'
+                  src={ item.get('imgUrl') }
+                  alt=''
+                />
+                { item.get('title') }
+              </TopicItem>
+            )
+          })
+        }
+      </TopicWrapper>
+    );
+  }
 }
 
 const mapStateToProps = (state) => ({
-    list: state.getIn(['home', 'topicList'])
+  list: state.getIn(['home', 'topicList'])
 })
 
 const mapDispatchToProps = () => ({})
