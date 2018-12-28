@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {connect} from 'react-redux';
+import * as actionCreators from './store/actionCreators'
 import {
   DetailWrapper,
   DetailHeader,
@@ -9,17 +11,28 @@ class Detail extends Component {
   render() {
     return (
       <DetailWrapper>
-        <DetailHeader>三行情诗（2018-85）《等》</DetailHeader>
-        <Content>
-          <img src='//upload-images.jianshu.io/upload_images/6778195-eb67d7a22585ca9d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp'/>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquid corporis culpa dicta eum exercitationem facere, fuga laboriosam, maiores odit perferendis porro, repellendus similique. Accusantium deleniti dolores incidunt necessitatibus quia.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad amet aperiam, architecto beatae dignissimos esse est illo inventore ipsa magni maiores veritatis! Delectus eos odio placeat quidem quod soluta!</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolorem doloremque ducimus, maxime minus saepe totam? Consequatur corporis delectus illum ipsum, laboriosam, laborum mollitia nisi perspiciatis praesentium quibusdam repellendus sequi.</p>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eius excepturi expedita illo impedit, molestiae rerum? Asperiores, dolore iure, minus nemo odio possimus quasi qui quod repellendus, rerum sequi velit?</p>
-        </Content>
+        <DetailHeader>{this.props.title}</DetailHeader>
+        <Content
+          dangerouslySetInnerHTML={{__html: this.props.content}}
+        />
       </DetailWrapper>
     );
   }
+
+  componentDidMount() {
+        this.props.getDetail();
+  }
 }
 
-export default Detail;
+const mapState = (state) => ({
+  title: state.getIn(['detail', 'title']),
+  content: state.getIn(['detail', 'content'])
+})
+
+const mapDispatch = (dispatch) => ({
+  getDetail() {
+    dispatch(actionCreators.getDetail())
+  }
+})
+
+export default connect(mapState,mapDispatch)(Detail);
