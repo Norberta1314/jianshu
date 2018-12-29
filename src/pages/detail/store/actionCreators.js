@@ -7,11 +7,10 @@ const addDetail = (result) => ({
   result: fromJS(result)
 })
 
-export const getDetail = () => {
+export const getDetail = (id) => {
   return (dispatch) => {
-    axios.get('/api/detail.json').then((res) => {
+    axios.get('/api/detail.json?id='+ id).then((res) => {
       const result = res.data.data;
-      console.log(result)
       dispatch(addDetail(result))
     })
   }

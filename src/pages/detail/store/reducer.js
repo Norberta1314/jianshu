@@ -8,7 +8,6 @@ const defaultState = fromJS({
 
 export default (state = defaultState, action) => {
   if (action.type === actionTypes.GET_DETAIL) {
-     // console.log(action.result.)
     return state.merge({
       title: action.result.get('title'),
       content: action.result.get('content')

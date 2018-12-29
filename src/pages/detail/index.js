@@ -30,8 +30,8 @@ const mapState = (state) => ({
 })
 
 const mapDispatch = (dispatch) => ({
-  getDetail() {
-    dispatch(actionCreators.getDetail())
+  getDetail(id) {
+    dispatch(actionCreators.getDetail(id))
   }
 })
 
