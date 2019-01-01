@@ -18,6 +18,7 @@ import {
   Button,
 } from './style';
 import { actionCreators } from './store'
+import *  as loginActionCreators  from '../../pages/login/store/actionCreators'
 
 class Header extends PureComponent {
 
@@ -57,7 +58,7 @@ class Header extends PureComponent {
   }
 
   render() {
-    const {focused, handleInputFocus, handleInputBlur, list, login} = this.props;
+    const {focused, handleInputFocus, handleInputBlur, list, login, logout} = this.props;
     return (
       <HeaderWrapper>
         <Link to='/'>
@@ -68,7 +69,7 @@ class Header extends PureComponent {
           <NavItem className='left'>下载app</NavItem>
           {
             login ?
-              <NavItem className='right'>退出</NavItem> :
+              <NavItem className='right' onClick={ logout }>退出</NavItem> :
               <Link to='/login'>
                 <NavItem className='right'>登陆</NavItem>
               </Link>
@@ -150,6 +151,9 @@ const mapDispatchToProps = (dispatch) => {
       console.log(originAngle);
       spin.style.transform = 'rotate(' + (originAngle + 360) + 'deg)';
       dispatch(actionCreators.ChangePage(page, totalPage));
+    },
+    logout() {
+      dispatch(loginActionCreators.logout())
     }
   }
 }
