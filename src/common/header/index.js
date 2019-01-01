@@ -18,7 +18,7 @@ import {
   Button,
 } from './style';
 import { actionCreators } from './store'
-import *  as loginActionCreators  from '../../pages/login/store/actionCreators'
+import *  as loginActionCreators from '../../pages/login/store/actionCreators'
 
 class Header extends PureComponent {
 
@@ -95,11 +95,13 @@ class Header extends PureComponent {
             { this.getListArea() }
           </SearchWrapper>
           <Addition>
-            <Button className='writting'>
-              <i className='iconfont'> &#xe617;</i>
-              写文章
-            </Button>
-            <Button className='reg'>注册</Button>
+            <Link to='/write'>
+              <Button className='writting'>
+                <i className='iconfont'> &#xe617;</i>
+                写文章
+              </Button>
+              <Button className='reg'>注册</Button>
+            </Link>
           </Addition>
         </Nav>
       </HeaderWrapper>

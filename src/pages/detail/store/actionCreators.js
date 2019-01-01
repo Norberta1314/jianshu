@@ -5,7 +5,7 @@ import { fromJS } from 'immutable'
 const addDetail = (result) => ({
   type: actionTypes.GET_DETAIL,
   result: fromJS(result)
-})
+});
 
 export const getDetail = (id) => {
   return (dispatch) => {
@@ -14,4 +14,4 @@ export const getDetail = (id) => {
       dispatch(addDetail(result))
     })
   }
-}
+};
